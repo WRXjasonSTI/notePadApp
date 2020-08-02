@@ -2,56 +2,44 @@
 var db = require("./db.json");
 const fs = require("fs");
 
-//Functionality
-//re-index data array
-function reindexDB(dbArray) {
-  let newDB = [];
+//Functionality/Initialization of array and route to db.json file
+function databaseUse(dbArray) {
+  let userNotes = [];
   for (let i = 0; i < dbArray.length; i++) {
-    let reIndexedNote = dbArray[i];
-    reIndexedNote.id = i + 1;
-    newDB[i] = reIndexedNote;
+    let noteID = dbArray[i];
+    noteID.id = i + 1;
+    userNotes[i] = noteID;
   }
-  return newDB;
+  return userNotes;
 }
-//save data array to db.json
-function writeDB(dbArray) {
+
+function databaseSave(dbArray) {
   fs.writeFile("./db.json", JSON.stringify(dbArray), function (err) {
     if (err) throw err;
   });
 }
 
-//routing
+//Routing, Getting, Posting, Saving, Deleting, Crying
 module.exports = function (app) {
-  // API GET request route
   app.get("/api/notes", function (req, res) {
     res.json(db);
   });
 
-  //API POST request route
+  //Posting and Updating to and from array
   app.post("/api/notes", function (req, res) {
-    //newNote from request
-    const newNote = req.body;
-    //add new note to db array
-    db.push(newNote);
-    //rewrite db array with new sequential indexes
-    db = reindexDB(db);
-    //save db array to json file
-    writeDB(db);
-    //respond with new note
-    res.json(newNote);
+    const userNew = req.body;
+    db.push(userNew);
+    db = databaseUse(db);
+    databaseSave(db);
+    res.json(userNew);
   });
 
-  //API DELETE request route
+  //Deleting and updating to and from array
   app.delete("/api/notes/:id", function (req, res) {
-    //deleted note id from request
     const deletedNoteID = req.params.id;
-    //remove note from db array and return to new array
     const deletedNote = db.splice(deletedNoteID - 1, 1);
-    //rewrite db array with new indexes
-    db = reindexDB(db);
-    //write newDB array to disk
-    writeDB(db);
-    //send response with deleted note
+    db = databaseUse(db);
+    databaseSave(db);
     res.json(deletedNote);
   });
 };

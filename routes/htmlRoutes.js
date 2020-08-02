@@ -1,7 +1,7 @@
 //Dependencies
 const path = require("path");
 
-//Functionality
+//Functionality and routing to UI
 module.exports = function (app) {
   // GET promise thingies
   app.get("/", function (req, res) {
