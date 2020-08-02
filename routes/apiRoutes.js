@@ -15,7 +15,7 @@ function reindexDB(dbArray) {
 }
 //save data array to db.json
 function writeDB(dbArray) {
-  fs.writeFile("./db/db.json", JSON.stringify(dbArray), function (err) {
+  fs.writeFile("./db.json", JSON.stringify(dbArray), function (err) {
     if (err) throw err;
   });
 }
