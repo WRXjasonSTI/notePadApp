@@ -5,7 +5,7 @@ Thank you for viewing my repository. The following repository is for a deployed 
 ### Screenshots
 
 Intuitive UI:  
-![Note Section](capture.PNG)  
+![Note Section](./capture.PNG)  
 
 ## License
 ![GitHub](https://img.shields.io/github/license/WRXjasonSTI/notePadApp)
