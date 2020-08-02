@@ -1,0 +1,28 @@
+{
+  "name": "notepadapp",
+  "version": "1.0.0",
+  "description": "Note taker using express among others",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WRXjasonSTI/notePadApp.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "jcruz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WRXjasonSTI/notePadApp/issues"
+  },
+  "homepage": "https://github.com/WRXjasonSTI/notePadApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "file-system": "^2.2.2",
+    "path": "^0.12.7"
+  }
+}
