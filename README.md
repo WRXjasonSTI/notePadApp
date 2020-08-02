@@ -1,6 +1,6 @@
 # Deployed Note Taker 
 
-Thank you for viewing my repository. The following repository is for a deployed application that allows users to take notes to save and later delete. The app is built with Express functions. 
+Thank you for viewing my repository. The following repository is for a deployed application that allows users to take notes to save and later delete. The app is built with Express functions. https://w11notetakerhomework.herokuapp.com/notes  
 
 ### Screenshots
 
